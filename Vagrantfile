@@ -86,7 +86,10 @@ Vagrant.configure(2) do |config|
   # config.push.define "atlas" do |push|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
-
+  config.push.define "heroku" do |push|
+    push.app = "floating-tor-42774"
+    push.remote = "heroku"
+  end
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
@@ -159,4 +162,11 @@ Vagrant.configure(2) do |config|
     sudo chown -R www-data:www-data /var/run/nginx/
     sudo service nginx restart
   )
+
+  config.vm.provision :shell, privileged: false, run: "always", inline: %(
+    cd /vagrant/
+    bundle exec unicorn_rails -D
+    sudo service nginx restart
+  )
 end
+

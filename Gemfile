@@ -3,9 +3,16 @@ ruby '2.2.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
 
-# gem 'pg' # soooooon!
+
 # must use this version of mysql2 for rails 4.0.0
-gem 'mysql2'
+group :development, :test do
+  gem 'mysql2'
+end
+ 
+group :production do
+  gem 'pg'
+end
+
 
 gem 'redis' # ephemeral storage. used for expiring wit.ai contexts
 
@@ -16,6 +23,8 @@ gem 'rails_12factor'
 gem 'mail', '2.6.3'
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
+
+gem 'figaro'
 
 
 group :development do
@@ -108,6 +117,11 @@ gem 'twilio-ruby'
 
 # use Wuparty for wufoo
 gem 'wuparty'
+
+# for typeform
+gem 'typeform'
+
+gem 'better_errors'
 
 # Use gsm_encoder to help text messages send correctly
 gem 'gsm_encoder'

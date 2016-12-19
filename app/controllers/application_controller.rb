@@ -1,18 +1,25 @@
 class ApplicationController < ActionController::Base
 
+  # include DeviseTokenAuth::Concerns::SetUserByToken
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  after_action :flash_to_headers
 
   # this is so that json requests don't redirect without a user
   before_action :authenticate_user!
   # before_action :authenticate_user!, unless: request.format == :json
   # before_action :user_needed, if: request.format == :json
+  skip_before_action :verify_authenticity_token
+
+  after_action :flash_to_headers
 
   before_action :set_paper_trail_whodunnit
   before_action :set_global_search_variable
+
+
+
 
   def set_global_search_variable
     @q = Person.ransack(params[:q])
@@ -23,6 +30,8 @@ class ApplicationController < ActionController::Base
       render json: { 'error' => 'authentication error' }, status: 401
     end
   end
+
+
 
   def flash_to_headers
     return unless request.xhr?
@@ -46,5 +55,8 @@ class ApplicationController < ActionController::Base
       end
       nil
     end
+
+
+
 
 end
