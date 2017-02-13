@@ -1,6 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/github/mangrove-labs/kimball/badge.svg?branch=development)](https://coveralls.io/github/mangrove-labs/kimball?branch=development)[![Build Status](https://travis-ci.org/mangrove-labs/kimball.svg?branch=development)](https://travis-ci.org/BlueRidgeLabs/kimball)[![Code Climate](https://codeclimate.com/github/mangrove-labs/kimball/badges/gpa.svg)](https://codeclimate.com/github/mangrove-labs/kimball)
+
 Kimball
 =====
-[![Coverage Status](https://coveralls.io/repos/github/BlueRidgeLabs/kimball/badge.svg?branch=development)](https://coveralls.io/github/BlueRidgeLabs/kimball?branch=development)[![Build Status](https://travis-ci.org/BlueRidgeLabs/kimball.svg?branch=development)](https://travis-ci.org/BlueRidgeLabs/kimball)[![Code Climate](https://codeclimate.com/github/BlueRidgeLabs/kimball/badges/gpa.svg)](https://codeclimate.com/github/BlueRidgeLabs/kimball)
 
 Kimball is an application to manage people that are involved with the Smart Chicago CUTGroup.
 
